@@ -1,0 +1,85 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &1
+MonoBehaviour:
+  m_ObjectHideFlags: 61
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ffe70aba2e7074048aca5de573b64a59, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  SimpleSelectedItems:
+    m_Keys:
+    - Assets/Images.meta
+    - Assets/Images/Ground.png
+    - Assets/Images/Ground.png.meta
+    - Assets/Luminaris Starship.meta
+    - Assets/Luminaris Starship/Documentation.meta
+    - Assets/Luminaris Starship/Documentation/Readme Luminaris.txt
+    - Assets/Luminaris Starship/Documentation/Readme Luminaris.txt.meta
+    - Assets/Luminaris Starship/Model.meta
+    - Assets/Luminaris Starship/Model/Luminaris Anim conttroller.controller
+    - Assets/Luminaris Starship/Model/Luminaris Anim conttroller.controller.meta
+    - Assets/Luminaris Starship/Model/Luminaris Starship.FBX
+    - Assets/Luminaris Starship/Model/Luminaris Starship.FBX.meta
+    - Assets/Luminaris Starship/Model/Materials.meta
+    - Assets/Luminaris Starship/Model/Materials/Luminaris Diffuse.mat
+    - Assets/Luminaris Starship/Model/Materials/Luminaris Diffuse.mat.meta
+    - Assets/Luminaris Starship/Model/Materials/Luminaris Starship.mat
+    - Assets/Luminaris Starship/Model/Materials/Luminaris Starship.mat.meta
+    - Assets/Luminaris Starship/Model/Textures.meta
+    - Assets/Luminaris Starship/Model/Textures/Luminaris Diffuse.tga
+    - Assets/Luminaris Starship/Model/Textures/Luminaris Diffuse.tga.meta
+    - Assets/Luminaris Starship/Model/Textures/Luminaris Emissive.tga
+    - Assets/Luminaris Starship/Model/Textures/Luminaris Emissive.tga.meta
+    - Assets/Luminaris Starship/Model/Textures/Luminaris Normal.tga
+    - Assets/Luminaris Starship/Model/Textures/Luminaris Normal.tga.meta
+    - Assets/Luminaris Starship/Model/Textures/Luminaris Specular.tga
+    - Assets/Luminaris Starship/Model/Textures/Luminaris Specular.tga.meta
+    - Assets/Luminaris Starship/Prefabs.meta
+    - Assets/Luminaris Starship/Prefabs/Luminaris Starship.prefab
+    - Assets/Luminaris Starship/Prefabs/Luminaris Starship.prefab.meta
+    - Assets/Materials.meta
+    - Assets/Materials/Ground.mat
+    - Assets/Materials/Ground.mat.meta
+    - Assets/New Terrain 1.asset
+    - Assets/New Terrain 1.asset.meta
+    - Assets/New Terrain.asset
+    - Assets/New Terrain.asset.meta
+    - Assets/Scenes.meta
+    - Assets/Scenes/SampleScene.unity
+    - Assets/Scenes/SampleScene.unity.meta
+    - Assets/Scripts.meta
+    - Assets/Scripts/CameraMovement.cs
+    - Assets/Scripts/CameraMovement.cs.meta
+    - Assets/Scripts/Obstacles.cs
+    - Assets/Scripts/Obstacles.cs.meta
+    - Assets/Scripts/ShipMovement.cs
+    - Assets/Scripts/ShipMovement.cs.meta
+    - Assets/WorldSkies.meta
+    - Assets/WorldSkies/Sky_mat.mat
+    - Assets/WorldSkies/Sky_mat.mat.meta
+    - Assets/WorldSkies/Textures.meta
+    - Assets/WorldSkies/Textures/Back_Tex.png
+    - Assets/WorldSkies/Textures/Back_Tex.png.meta
+    - Assets/WorldSkies/Textures/Down_Tex.png
+    - Assets/WorldSkies/Textures/Down_Tex.png.meta
+    - Assets/WorldSkies/Textures/Front_Tex.png
+    - Assets/WorldSkies/Textures/Front_Tex.png.meta
+    - Assets/WorldSkies/Textures/Left_Tex.png
+    - Assets/WorldSkies/Textures/Left_Tex.png.meta
+    - Assets/WorldSkies/Textures/Right_Tex.png
+    - Assets/WorldSkies/Textures/Right_Tex.png.meta
+    - Assets/WorldSkies/Textures/Up_Tex.png
+    - Assets/WorldSkies/Textures/Up_Tex.png.meta
+    - 
+    m_Values: 000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
+  RevisionSummary: 
+  ChangesSearchValue: 
+  SelectedHistoryRevision: 
+  HistoryPageNumber: 0
+  TabIndex: 0
