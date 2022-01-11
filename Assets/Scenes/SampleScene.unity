@@ -274,6 +274,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ground: {fileID: 8555367150754564238, guid: a86e4589c4ced0049a74945367333261, type: 3}
   spawnNext: {x: 0, y: 0, z: 0}
+  plane_x: 0
+  plane_z: 0
+  obstaclePrefab: {fileID: 6855405901312528668, guid: eb440a67b4c60f2418e376dd1b857fc4, type: 3}
 --- !u!4 &460051431
 Transform:
   m_ObjectHideFlags: 0
@@ -517,7 +520,7 @@ CharacterController:
   m_Enabled: 1
   serializedVersion: 2
   m_Height: 1
-  m_Radius: 2
+  m_Radius: 1
   m_SlopeLimit: 45
   m_StepOffset: 0.3
   m_SkinWidth: 0.08

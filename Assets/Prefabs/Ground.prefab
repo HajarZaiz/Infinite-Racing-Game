@@ -137,6 +137,7 @@ GameObject:
   - component: {fileID: 8555367150754564237}
   - component: {fileID: 4123078260569245167}
   - component: {fileID: 3569140997333264673}
+  - component: {fileID: 3181918049912767964}
   m_Layer: 0
   m_Name: Ground
   m_TagString: Untagged
@@ -185,3 +186,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 11d5de76ba6c54d4aaf35506fd8446ab, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!33 &3181918049912767964
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8555367150754564238}
+  m_Mesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
