@@ -14,26 +14,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   SimpleSelectedItems:
     m_Keys:
-    - Assets/Images/Ground.png.meta
-    - Assets/Images/Sci-fi_Pipes_001_ambientOcclusion.jpg
-    - Assets/Images/Sci-fi_Pipes_001_ambientOcclusion.jpg.meta
-    - Assets/Images/Sci-fi_Pipes_001_basecolor.jpg
-    - Assets/Images/Sci-fi_Pipes_001_basecolor.jpg.meta
-    - Assets/Images/Sci-fi_Pipes_001_height.png
-    - Assets/Images/Sci-fi_Pipes_001_height.png.meta
-    - Assets/Images/Sci-fi_Pipes_001_metallic.jpg
-    - Assets/Images/Sci-fi_Pipes_001_metallic.jpg.meta
-    - Assets/Images/Sci-fi_Pipes_001_normal.jpg
-    - Assets/Images/Sci-fi_Pipes_001_normal.jpg.meta
-    - Assets/Images/Sci-fi_Pipes_001_roughness.jpg
-    - Assets/Images/Sci-fi_Pipes_001_roughness.jpg.meta
-    - Assets/Materials/Obstacle.mat
-    - Assets/New Terrain 2.asset
-    - Assets/New Terrain 2.asset.meta
-    - Assets/Scenes/SampleScene.unity
-    - Assets/Scripts/Infinite Ground/InfiniteGround.cs
+    - Assets/Scripts/CameraMovement.cs
     - 
-    m_Values: 00000000000000000000000000000000000000
+    m_Values: 0000
   RevisionSummary: 
   ChangesSearchValue: 
   SelectedHistoryRevision: 

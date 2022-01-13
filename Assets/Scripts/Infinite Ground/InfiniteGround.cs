@@ -31,6 +31,7 @@ public class InfiniteGround : MonoBehaviour
     {
         SpawnGround();
         SpawnGround();
+        SpawnGround();
     }
 
     void Update()

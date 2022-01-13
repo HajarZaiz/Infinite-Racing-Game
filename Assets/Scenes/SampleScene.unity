@@ -156,7 +156,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4050943347418754, guid: e5078c17b52bb014882bc0363c060079, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 5
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 4050943347418754, guid: e5078c17b52bb014882bc0363c060079, type: 3}
       propertyPath: m_LocalPosition.z
@@ -503,8 +503,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   direction: {x: 0, y: 0, z: 0}
-  moveSpeed: 30
-  verticalMovement: 5
+  verticalMoveSpeed: 80
+  horizontalMoveSpeed: 20
+  directionv: {x: 0, y: 0, z: 0}
+  directionh: {x: 0, y: 0, z: 0}
   controller: {fileID: 1176358449}
 --- !u!4 &1176358448 stripped
 Transform:

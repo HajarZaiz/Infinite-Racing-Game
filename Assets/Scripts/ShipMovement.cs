@@ -5,9 +5,11 @@ using UnityEngine;
 public class ShipMovement : MonoBehaviour
 {
     [SerializeField] private Vector3 direction;
-    [SerializeField] private float moveSpeed;
-    [SerializeField] private float verticalMovement;
+    [SerializeField] private float verticalMoveSpeed;
+    [SerializeField] private float horizontalMoveSpeed;
     float speed = 10F;
+    [SerializeField] private Vector3 directionv;
+    [SerializeField] private Vector3 directionh;
 
     //Variables for components
     [SerializeField] private CharacterController controller;
@@ -21,10 +23,14 @@ public class ShipMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        //Basic Ship Movement
-        Move();
         //Keep Ship within camera view
         clampWithinScreen();
+    }
+
+    void FixedUpdate()
+    {
+        //Basic Ship Movement
+        Move();
     }
 
     private void Move()
@@ -47,9 +53,13 @@ public class ShipMovement : MonoBehaviour
             transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.Euler(-90, 90, -90), Time.deltaTime * speed);
         }
         //Direction of Movement
-        direction = new Vector3(moveX, 0, moveZ);
+        //direction = new Vector3(moveX, 0, moveZ);
+        directionv = new Vector3(moveX, 0, 0);
+        directionh = new Vector3(0, 0, moveZ);
         //Move
-        controller.Move(direction * moveSpeed * Time.deltaTime);
+        //controller.Move(direction * moveSpeed * Time.deltaTime);
+        controller.Move(directionh * verticalMoveSpeed * Time.deltaTime);
+        controller.Move(directionv * horizontalMoveSpeed * Time.deltaTime);
 
     }
 
