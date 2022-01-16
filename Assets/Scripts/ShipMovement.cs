@@ -53,11 +53,9 @@ public class ShipMovement : MonoBehaviour
             transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.Euler(-90, 90, -90), Time.deltaTime * speed);
         }
         //Direction of Movement
-        //direction = new Vector3(moveX, 0, moveZ);
         directionv = new Vector3(moveX, 0, 0);
         directionh = new Vector3(0, 0, moveZ);
         //Move
-        //controller.Move(direction * moveSpeed * Time.deltaTime);
         controller.Move(directionh * verticalMoveSpeed * Time.deltaTime);
         controller.Move(directionv * horizontalMoveSpeed * Time.deltaTime);
 
