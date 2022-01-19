@@ -14,10 +14,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   SimpleSelectedItems:
     m_Keys:
-    - Assets/Prefabs/Ground.prefab
-    - Assets/Scripts/CameraMovement.cs
+    - Assets/Particle Systems/Explosion.meta
+    - Assets/Particle Systems/Explosion/MaterialFire.mat
+    - Assets/Particle Systems/Explosion/MaterialFire.mat.meta
+    - Assets/Particle Systems/Explosion/MaterialFire2.mat
+    - Assets/Particle Systems/Explosion/MaterialFire2.mat.meta
+    - Assets/Particle Systems/Fog/SmokeMaterial.mat
+    - Assets/Particle Systems/Fog/SmokeMaterial.mat.meta
+    - Assets/Prefabs/Explosion.prefab
+    - Assets/Prefabs/Explosion.prefab.meta
+    - Assets/Prefabs/Obstacle.prefab
+    - Assets/Scenes/SampleScene.unity
+    - Assets/Scripts/ShipMovement.cs
     - 
-    m_Values: 000000
+    m_Values: 00000000000000000000000000
   RevisionSummary: 
   ChangesSearchValue: 
   SelectedHistoryRevision: 

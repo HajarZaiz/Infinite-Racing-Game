@@ -14,6 +14,9 @@ public class ShipMovement : MonoBehaviour
     //Variables for components
     [SerializeField] private CharacterController controller;
 
+    //Variables for collision
+    [SerializeField] private GameObject explosion;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -72,5 +75,18 @@ public class ShipMovement : MonoBehaviour
 
         position.x = Mathf.Clamp(position.x, leftBorder, rightBorder);
         transform.position = position;
+    }
+
+    //Explosion on contact with obstacle
+    void OnCollisionEnter(Collision collision)
+    {
+        if(collision.gameObject.tag == "Obstacle")
+        {
+            //Add Explosion Effect
+            Instantiate(explosion, transform.position, transform.rotation);
+            Debug.Log("BOOM");
+            //Destroy the Ship
+            //Destroy(gameObject);
+        }
     }
 }
