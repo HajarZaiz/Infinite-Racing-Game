@@ -3,7 +3,12 @@ guid: aec95c2553e71fc4b93a5d6f1432b287
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - ground: {instanceID: 0}
+  - obstaclePrefab: {instanceID: 0}
+  - ship: {instanceID: 0}
+  - scoreTorus: {fileID: 2506189671559855867, guid: 2caee74023f61e747adbe4c5ff412b88, type: 3}
+  - slowMoTorus: {fileID: 7932850847338242229, guid: e96563924fc4d73428b279143ac178ca, type: 3}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 

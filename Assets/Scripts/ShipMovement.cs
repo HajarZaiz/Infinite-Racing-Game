@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class ShipMovement : MonoBehaviour
 {
@@ -16,6 +17,7 @@ public class ShipMovement : MonoBehaviour
 
     //Variables for collision
     [SerializeField] private GameObject explosion;
+
 
     // Start is called before the first frame update
     void Start()
@@ -77,16 +79,33 @@ public class ShipMovement : MonoBehaviour
         transform.position = position;
     }
 
-    //Explosion on contact with obstacle
+    
     void OnCollisionEnter(Collision collision)
     {
-        if(collision.gameObject.tag == "Obstacle")
+        //Explosion on contact with obstacle
+        if (collision.gameObject.tag == "Obstacle")
         {
             //Add Explosion Effect
             Instantiate(explosion, transform.position, transform.rotation);
-            Debug.Log("BOOM");
             //Destroy the Ship
             //Destroy(gameObject);
         }
     }
+
+    void OnTriggerEnter(Collider collision)
+    {
+        //PowerUps Collisions
+        if (collision.gameObject.tag == "ScoreTorus")
+        {
+            UIManager.instance.ScoreBoost();
+            Destroy(collision);
+        }
+
+        if (collision.gameObject.tag == "SpeedTorus")
+        {
+            
+        }
+    }
+
+
 }

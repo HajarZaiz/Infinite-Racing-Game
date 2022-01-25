@@ -17,14 +17,19 @@ public class InfiniteGround : MonoBehaviour
     //----------------------Number of obstacles per cell----------------------------
     [SerializeField] private float density;
     [SerializeField] private GameObject obstaclePrefab;
-    //Corners of plane
-    private Vector3[] vertices;
+    
+    //Infinite Plane Variables
     private int i = 0;
-    private float z_pos;
+    private Vector3 topLeft, topRight, bottomLeft, bottomRight;
 
-    //Obstacles destruction variables
+    //Objects destruction variables
     [SerializeField] private Transform ship;
 
+    //PowerUps Variables
+    [SerializeField] private GameObject scoreTorus;
+    private int cntScore = 0;
+    [SerializeField] private GameObject speedTorus;
+    private int cntSpeed = 0;
 
     // Start is called before the first frame update
     void Start()
@@ -55,10 +60,10 @@ public class InfiniteGround : MonoBehaviour
     public void SpawnObstacles()
     {
         //Global coordinates of plane corners
-        Vector3 topLeft = new Vector3(-100, 0, 200 + i);
-        Vector3 topRight = new Vector3(100, 0, 200 + i);
-        Vector3 bottomLeft = new Vector3(-100, 0, i);
-        Vector3 bottomRight = new Vector3(100, 0, i);
+        topLeft = new Vector3(-100, 0, 200 + i);
+        topRight = new Vector3(100, 0, 200 + i);
+        bottomLeft = new Vector3(-100, 0, i);
+        bottomRight = new Vector3(100, 0, i);
         i = i + 200;
 
         //Chunks iteration variables
@@ -94,6 +99,24 @@ public class InfiniteGround : MonoBehaviour
             //Move to the next row if needed
             if (j % frequency == 0)
             {
+                cntScore += 1;
+                cntSpeed += 1;
+                //Spawn powerups
+                if(cntScore >= 5)
+                {
+                    var x_rand = Random.Range(topLeft.x + 30, topRight.x - 30);
+                    var z_rand = Random.Range(bottomLeft.z + z_increment1, bottomLeft.z + z_increment2);
+                    GameObject powerUp = Instantiate(scoreTorus, new Vector3(x_rand, ship.position.y, z_rand), Quaternion.identity);
+                    cntScore = 0;
+                }
+                if(cntSpeed >= 15)
+                {
+                    var x_rand = Random.Range(topLeft.x + 30, topRight.x - 30);
+                    var z_rand = Random.Range(bottomLeft.z + z_increment1, bottomLeft.z + z_increment2);
+                    GameObject powerUp = Instantiate(speedTorus, new Vector3(x_rand, ship.position.y, z_rand), Quaternion.identity);
+                    cntSpeed = 0;
+                }
+                //Update Row
                 z_increment1 = z_increment1 + (200 / frequency);
                 z_increment2 = z_increment2 + (200 / frequency);
 
