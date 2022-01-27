@@ -644,6 +644,7 @@ MonoBehaviour:
   direction: {x: 0, y: 0, z: 0}
   verticalMoveSpeed: 80
   horizontalMoveSpeed: 20
+  slowMoSpeed: 15
   directionv: {x: 0, y: 0, z: 0}
   directionh: {x: 0, y: 0, z: 0}
   controller: {fileID: 1176358449}

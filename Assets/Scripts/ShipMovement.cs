@@ -8,7 +8,8 @@ public class ShipMovement : MonoBehaviour
     [SerializeField] private Vector3 direction;
     [SerializeField] private float verticalMoveSpeed;
     [SerializeField] private float horizontalMoveSpeed;
-    float speed = 10F;
+    private float speed = 10f;
+    [SerializeField] float slowMoSpeed;
     [SerializeField] private Vector3 directionv;
     [SerializeField] private Vector3 directionh;
 
@@ -103,8 +104,18 @@ public class ShipMovement : MonoBehaviour
 
         if (collision.gameObject.tag == "SpeedTorus")
         {
-            
+            Destroy(collision);
+            float initialSpeed = verticalMoveSpeed;
+            verticalMoveSpeed = slowMoSpeed;
+            StartCoroutine(ResumeSpeed(initialSpeed));
         }
+    }
+
+    private IEnumerator ResumeSpeed(float initialSpeed)
+    {
+        yield return new WaitForSeconds(5);
+
+        verticalMoveSpeed = initialSpeed;
     }
 
 

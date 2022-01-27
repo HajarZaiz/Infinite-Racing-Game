@@ -46,6 +46,17 @@ public class InfiniteGround : MonoBehaviour
         foreach (GameObject o in obstacles)
             if(ship.position.z > o.transform.position.z + 10)
                 GameObject.Destroy(o);
+
+        //Continuously destroy speed and score torus behind
+        GameObject[] torus1 = GameObject.FindGameObjectsWithTag("ScoreTorus");
+        foreach (GameObject t in torus1)
+            if (ship.position.z > t.transform.position.z + 10)
+                GameObject.Destroy(t);
+
+        GameObject[] torus2 = GameObject.FindGameObjectsWithTag("SpeedTorus");
+        foreach (GameObject t in torus2)
+            if (ship.position.z > t.transform.position.z + 10)
+                GameObject.Destroy(t);
     }
 
     public void SpawnGround()
