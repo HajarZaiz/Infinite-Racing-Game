@@ -3,3 +3,4 @@
 ### Issues List:
 
 - [ ] Bad collision with the sides of the ship.
+- [ ] Improve obstacles & powerups placement.
