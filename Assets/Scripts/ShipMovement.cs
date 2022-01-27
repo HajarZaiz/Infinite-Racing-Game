@@ -8,7 +8,9 @@ public class ShipMovement : MonoBehaviour
     [SerializeField] private Vector3 direction;
     [SerializeField] private float verticalMoveSpeed;
     [SerializeField] private float horizontalMoveSpeed;
-    private float speed = 10f;
+    [SerializeField] private float maxVerticalMoveSpeed;
+    [SerializeField] private int speedPickUpTime;
+    private float speed;
     [SerializeField] float slowMoSpeed;
     [SerializeField] private Vector3 directionv;
     [SerializeField] private Vector3 directionh;
@@ -19,11 +21,12 @@ public class ShipMovement : MonoBehaviour
     //Variables for collision
     [SerializeField] private GameObject explosion;
 
+    int prev = 0;
 
     // Start is called before the first frame update
     void Start()
     {
-
+        speed = 10f;
     }
 
     // Update is called once per frame
@@ -64,6 +67,7 @@ public class ShipMovement : MonoBehaviour
         //Move
         controller.Move(directionh * verticalMoveSpeed * Time.deltaTime);
         controller.Move(directionv * horizontalMoveSpeed * Time.deltaTime);
+        SpeedAdjustment();
 
     }
 
@@ -116,6 +120,22 @@ public class ShipMovement : MonoBehaviour
         yield return new WaitForSeconds(5);
 
         verticalMoveSpeed = initialSpeed;
+    }
+
+    //Increase speed every speedPickUpTime seconds of real gameplay
+    private void SpeedAdjustment()
+    {
+        float time = (int) Time.realtimeSinceStartup;
+        if (time != prev && time % speedPickUpTime == 0)
+        {
+            //Clamp speed
+            if(verticalMoveSpeed < maxVerticalMoveSpeed)
+            {
+                verticalMoveSpeed += 1;
+                Debug.Log(verticalMoveSpeed);
+            }
+            prev = (int) time;
+        }
     }
 
 

@@ -14,12 +14,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   SimpleSelectedItems:
     m_Keys:
-    - Assets/Prefabs/Slow Motion Torus.prefab
-    - Assets/Scripts/Infinite Ground/InfiniteGround.cs
+    - Assets/Scenes/SampleScene.unity
     - Assets/Scripts/ShipMovement.cs
     - 
-    m_Values: 00000000
-  RevisionSummary: 
+    m_Values: 010101
+  RevisionSummary: Speed Adjustement
   ChangesSearchValue: 
   SelectedHistoryRevision: 
   HistoryPageNumber: 0
