@@ -14,10 +14,22 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   SimpleSelectedItems:
     m_Keys:
-    - Assets/Scenes/SampleScene.unity
+    - Assets/Blender Models/Shape.fbx
+    - Assets/Blender Models/Shape.fbx.meta
+    - Assets/Materials/Menu.mat
+    - Assets/Materials/Menu.mat.meta
+    - Assets/Scenes/MainGame.unity
+    - Assets/Scenes/MainGame.unity.meta
+    - Assets/Scenes/Menu.unity
+    - Assets/Scenes/Menu.unity.meta
     - Assets/Scripts/Infinite Ground/InfiniteGround.cs
+    - Assets/Textures.meta
+    - Assets/Textures/Ground.png
+    - Assets/Textures/Ground.png.meta
+    - Assets/Textures/Terrazzo018_1K_Displacement.jpg
+    - Assets/Textures/Terrazzo018_1K_Displacement.jpg.meta
     - 
-    m_Values: 000000
+    m_Values: 000000000000000000000000000000
   RevisionSummary: 
   ChangesSearchValue: 
   SelectedHistoryRevision: 
