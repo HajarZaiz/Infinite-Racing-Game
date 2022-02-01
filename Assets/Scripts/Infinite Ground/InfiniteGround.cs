@@ -84,12 +84,62 @@ public class InfiniteGround : MonoBehaviour
         float z_increment1 = 0;
         float z_increment2 = 200 / frequency;
         var cellNumber = frequency * frequency;
+        int rowNumber = 1;
 
-        //Split the terrain to chunks (Initially split to frequency*frequency chunks that increase size with difficulty)
-        for(var j = 1; j < cellNumber; j++)
+        //Split the terrain to chunks and iterate over them
+        for(int j = 1; j < cellNumber; j++)
         {
+            //Check if the chunk needs to be skipped
+            //Check if the row number is odd or even
+            if(rowNumber%2 == 1)
+            {
+                //Check if at the end of the row
+                if(j%frequency == 0)
+                {
+                    //Update Row
+                    z_increment1 = z_increment1 + (200 / frequency);
+                    z_increment2 = z_increment2 + (200 / frequency);
+                    rowNumber = rowNumber + 1;
+
+                    //Reset the chunk cell
+                    x_increment1 = 0;
+                    x_increment2 = 200 / frequency;
+                }
+                //Skip every second cell
+                if(j%2 == 0)
+                {
+                    //Update the chunk cell
+                    x_increment1 = x_increment1 + (200 / frequency);
+                    x_increment2 = x_increment2 + (200 / frequency);
+                    continue;
+                }
+            }
+            else
+            {
+                //Check if at the end of the row
+                if (j % frequency == 0)
+                {
+                    //Update Row
+                    z_increment1 = z_increment1 + (200 / frequency);
+                    z_increment2 = z_increment2 + (200 / frequency);
+                    rowNumber = rowNumber + 1;
+
+                    //Reset the chunk cell
+                    x_increment1 = 0;
+                    x_increment2 = 200 / frequency;
+                }
+                //Skip every even numbered cell
+                if(j%2 == 1)
+                {
+                    //Update the chunk cell
+                    x_increment1 = x_increment1 + (200 / frequency);
+                    x_increment2 = x_increment2 + (200 / frequency);
+                    continue;
+                }
+            }
+  
             //Number of obstacles per cell
-            for (var k = 0; k < density; k++)
+            for(int k = 0; k < density; k++)
             {
                 //Randomize Spawning position in that chunk
                 var x_rand = Random.Range(topLeft.x + x_increment1, topLeft.x + x_increment2);
@@ -107,35 +157,28 @@ public class InfiniteGround : MonoBehaviour
             x_increment1 = x_increment1 + (200 / frequency);
             x_increment2 = x_increment2 + (200 / frequency);
 
-            //Move to the next row if needed
+            //Spawn powerups
             if (j % frequency == 0)
             {
                 cntScore += 1;
                 cntSpeed += 1;
                 //Spawn powerups
-                if(cntScore >= 5)
+                if (cntScore >= 5)
                 {
                     var x_rand = Random.Range(topLeft.x + 30, topRight.x - 30);
                     var z_rand = Random.Range(bottomLeft.z + z_increment1, bottomLeft.z + z_increment2);
                     GameObject powerUp = Instantiate(scoreTorus, new Vector3(x_rand, ship.position.y, z_rand), Quaternion.identity);
                     cntScore = 0;
                 }
-                if(cntSpeed >= 15)
+                if (cntSpeed >= 15)
                 {
                     var x_rand = Random.Range(topLeft.x + 30, topRight.x - 30);
                     var z_rand = Random.Range(bottomLeft.z + z_increment1, bottomLeft.z + z_increment2);
                     GameObject powerUp = Instantiate(speedTorus, new Vector3(x_rand, ship.position.y, z_rand), Quaternion.identity);
                     cntSpeed = 0;
                 }
-                //Update Row
-                z_increment1 = z_increment1 + (200 / frequency);
-                z_increment2 = z_increment2 + (200 / frequency);
-
-                //Reset the chunk cell
-                x_increment1 = 0;
-                x_increment2 = 200 / frequency;
+                
             }
-
         }
     }
 

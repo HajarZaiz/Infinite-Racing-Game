@@ -345,7 +345,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ground: {fileID: 8555367150754564238, guid: a86e4589c4ced0049a74945367333261, type: 3}
   spawnNext: {x: 0, y: 0, z: 0}
-  frequency: 5
+  frequency: 9
   heightMin: 30
   heightMax: 50
   density: 1
@@ -646,6 +646,8 @@ MonoBehaviour:
   horizontalMoveSpeed: 20
   maxVerticalMoveSpeed: 120
   speedPickUpTime: 5
+  rotationSpeed: 10
+  rotationSpeed2: 10
   slowMoSpeed: 15
   directionv: {x: 0, y: 0, z: 0}
   directionh: {x: 0, y: 0, z: 0}
