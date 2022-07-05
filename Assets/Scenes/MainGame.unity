@@ -345,7 +345,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ground: {fileID: 8555367150754564238, guid: a86e4589c4ced0049a74945367333261, type: 3}
   spawnNext: {x: 0, y: 0, z: 0}
-  frequency: 9
+  frequency: 10
   heightMin: 30
   heightMax: 50
   density: 1

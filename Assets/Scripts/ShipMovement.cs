@@ -10,11 +10,15 @@ public class ShipMovement : MonoBehaviour
     [SerializeField] private float horizontalMoveSpeed;
     [SerializeField] private float maxVerticalMoveSpeed;
     [SerializeField] private int speedPickUpTime;
+    [SerializeField] private int speedPickUpTime2;
     [SerializeField] private float rotationSpeed;
     [SerializeField] private float rotationSpeed2;
     [SerializeField] float slowMoSpeed;
     [SerializeField] private Vector3 directionv;
     [SerializeField] private Vector3 directionh;
+    private Transform myTransform;
+    private Vector3 lastPosition;
+    private bool isMoving;
 
     //Variables for components
     [SerializeField] private CharacterController controller;
@@ -27,7 +31,9 @@ public class ShipMovement : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        myTransform = transform;
+        lastPosition = myTransform.position;
+        isMoving = false;
     }
 
     // Update is called once per frame
@@ -75,7 +81,7 @@ public class ShipMovement : MonoBehaviour
         controller.Move(directionh * verticalMoveSpeed * Time.deltaTime);
         controller.Move(directionv * horizontalMoveSpeed * Time.deltaTime);
         SpeedAdjustment();
-
+        CheckMoving();
     }
 
     void clampWithinScreen()
@@ -139,11 +145,20 @@ public class ShipMovement : MonoBehaviour
             if(verticalMoveSpeed < maxVerticalMoveSpeed)
             {
                 verticalMoveSpeed += 1;
-                Debug.Log(verticalMoveSpeed);
             }
             prev = (int) time;
         }
     }
 
+    //Fix for when stuck between obstacles and not destroyed
+    private void CheckMoving(){
+        if ( myTransform.position != lastPosition)
+            isMoving = true;
+        else{
+            isMoving = false;
+            Instantiate(explosion, transform.position, transform.rotation);
+        }
+        lastPosition = myTransform.position;
+    }
 
 }

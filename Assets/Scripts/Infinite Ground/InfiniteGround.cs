@@ -155,7 +155,7 @@ public class InfiniteGround : MonoBehaviour
 
                 //Spawn Obstacle
                 GameObject obs = Instantiate(obstaclePrefab, new Vector3(x_rand, y_rand / 2, z_rand), Quaternion.identity);
-                obs.transform.localScale = new Vector3(9, y_rand, 1);
+                obs.transform.localScale = new Vector3(9, y_rand, 3);
             }
 
             //Update the chunk cell
