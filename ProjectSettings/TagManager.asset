@@ -7,6 +7,7 @@ TagManager:
   - Obstacle
   - ScoreTorus
   - SpeedTorus
+  - btn
   layers:
   - Default
   - TransparentFX

@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class CamMov : MonoBehaviour
 {
@@ -10,7 +12,9 @@ public class CamMov : MonoBehaviour
     [SerializeField] private GameObject spawnRing;
     [SerializeField] private GameObject panel2;
     [SerializeField] private GameObject menuCanvas;
+    [SerializeField] private GameObject btns;
     [SerializeField] private GameObject ship;
+    private Image bg;
     private bool pressed;
     private bool spawn;
     private Vector3 initialScale; 
@@ -21,8 +25,13 @@ public class CamMov : MonoBehaviour
         spawnRing.SetActive(false);
         spawn = false;
         menuCanvas.SetActive(false);
+        btns.SetActive(false);
         initialScale = new Vector3(1f, 1f, 1f);
         ship.transform.localScale = Vector3.zero;
+        bg = menuCanvas.GetComponent<Image>();
+        Color temp = bg.color;
+        temp.a= 0f;
+        bg.color = temp;
     }
 
     // Update is called once per frame
@@ -42,6 +51,8 @@ public class CamMov : MonoBehaviour
             rb.Sleep();
             if (!spawn)
             {
+
+                menuCanvas.SetActive(true);
                 spawn = true;
                 StartCoroutine(SpawnRingCoroutine());
             }
@@ -50,10 +61,11 @@ public class CamMov : MonoBehaviour
 
     private IEnumerator SpawnRingCoroutine()
     {
-        yield return new WaitForSeconds(3);
+        yield return new WaitForSeconds(1.5f);
+        StartCoroutine(FadeImage());
         spawnRing.SetActive(true);
         StartCoroutine(ScaleUpShip(5f));
-        menuCanvas.SetActive(true);
+        btns.SetActive(true);
     }
 
     private IEnumerator ScaleUpShip(float time)
@@ -71,4 +83,16 @@ public class CamMov : MonoBehaviour
         }
     }
 
+    IEnumerator FadeImage()
+    {
+        for (float i = 0; i <= 0.5f; i += Time.deltaTime)
+        {
+            bg.color = new Color(1, 1, 1, i);
+            yield return null;
+        }
+    }
+
+    public void Play(){
+        SceneManager.LoadScene(1);
+    }
 }

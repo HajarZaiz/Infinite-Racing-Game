@@ -646,6 +646,7 @@ MonoBehaviour:
   horizontalMoveSpeed: 20
   maxVerticalMoveSpeed: 120
   speedPickUpTime: 5
+  speedPickUpTime2: 2
   rotationSpeed: 10
   rotationSpeed2: 10
   slowMoSpeed: 15
