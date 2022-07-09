@@ -39,6 +39,7 @@ public class ShipMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        Move();
         //Keep Ship within camera view
         clampWithinScreen();
 
@@ -64,7 +65,7 @@ public class ShipMovement : MonoBehaviour
     void FixedUpdate()
     {
         //Basic Ship Movement
-        Move();
+        //Move();
     }
 
     private void Move()

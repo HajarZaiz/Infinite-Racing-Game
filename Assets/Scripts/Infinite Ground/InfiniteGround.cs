@@ -37,6 +37,11 @@ public class InfiniteGround : MonoBehaviour
         SpawnGround();
         SpawnGround();
         SpawnGround();
+        //Give the player a headstart
+        GameObject[] obstacles = GameObject.FindGameObjectsWithTag("Obstacle");
+        foreach (GameObject o in obstacles)
+            if(o.transform.position.z - ship.position.z < 200 && (Mathf.Abs(o.transform.position.x - ship.position.x) < 40))
+                GameObject.Destroy(o);
     }
 
     void Update()
