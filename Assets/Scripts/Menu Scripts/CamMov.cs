@@ -92,7 +92,4 @@ public class CamMov : MonoBehaviour
         }
     }
 
-    public void Play(){
-        SceneManager.LoadScene(1);
-    }
 }

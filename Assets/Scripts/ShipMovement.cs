@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class ShipMovement : MonoBehaviour
 {
@@ -19,6 +20,7 @@ public class ShipMovement : MonoBehaviour
     private Transform myTransform;
     private Vector3 lastPosition;
     private bool isMoving;
+    private bool destroyed;
 
     //Variables for components
     [SerializeField] private CharacterController controller;
@@ -34,11 +36,13 @@ public class ShipMovement : MonoBehaviour
         myTransform = transform;
         lastPosition = myTransform.position;
         isMoving = false;
+        destroyed = false;
     }
 
     // Update is called once per frame
     void Update()
     {
+
         Move();
         //Keep Ship within camera view
         clampWithinScreen();
@@ -62,12 +66,6 @@ public class ShipMovement : MonoBehaviour
         }
     }
 
-    void FixedUpdate()
-    {
-        //Basic Ship Movement
-        //Move();
-    }
-
     private void Move()
     {
         //Movement along the x axis
@@ -78,6 +76,10 @@ public class ShipMovement : MonoBehaviour
         //Direction of Movement
         directionv = new Vector3(moveX, 0, 0);
         directionh = new Vector3(0, 0, moveZ);
+        if (destroyed)
+        {
+            directionv = Vector3.zero;
+        }
         //Move
         controller.Move(directionh * verticalMoveSpeed * Time.deltaTime);
         controller.Move(directionv * horizontalMoveSpeed * Time.deltaTime);
@@ -104,11 +106,19 @@ public class ShipMovement : MonoBehaviour
         //Explosion on contact with obstacle
         if (collision.gameObject.tag == "Obstacle")
         {
+            destroyed = true;
             //Add Explosion Effect
             Instantiate(explosion, transform.position, transform.rotation);
-            //Destroy the Ship
-            //Destroy(gameObject);
+            //Game Over Screen Redirection
+            Destroy(gameObject, 2.5f);
+            StartCoroutine(GameOver());
         }
+    }
+
+    IEnumerator GameOver()
+    {
+        yield return new WaitForSeconds(2f);
+        SceneManager.LoadScene("GameOver");
     }
 
     void OnTriggerEnter(Collider collision)
@@ -140,7 +150,7 @@ public class ShipMovement : MonoBehaviour
     private void SpeedAdjustment()
     {
         float time = (int) Time.realtimeSinceStartup;
-        if (time != prev && time % speedPickUpTime == 0)
+        if (time != prev && time % speedPickUpTime == 0 && !destroyed)
         {
             //Clamp speed
             if(verticalMoveSpeed < maxVerticalMoveSpeed)
@@ -148,6 +158,10 @@ public class ShipMovement : MonoBehaviour
                 verticalMoveSpeed += 1;
             }
             prev = (int) time;
+        }
+        if (destroyed && verticalMoveSpeed > 0)
+        {
+            verticalMoveSpeed -= 1;
         }
     }
 
